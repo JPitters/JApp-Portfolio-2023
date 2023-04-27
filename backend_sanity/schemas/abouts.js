@@ -1,6 +1,6 @@
 export default {
-    name: 'testimonials',
-    title: 'Testimonials',
+    name: 'about',
+    title: 'About',
     type: 'document',
     fields: [
         {
@@ -9,8 +9,8 @@ export default {
             type: 'string'
         },
         {
-            name: 'company',
-            title: 'Company',
+            name: 'description',
+            title: 'Description',
             type: 'string'
         },
         {
@@ -22,8 +22,8 @@ export default {
             }
         },
         {
-            name: 'feedback',
-            title: 'Feedback',
+            name: 'hobbies',
+            title: 'Hobbies',
             type: 'string'
         }
     ]

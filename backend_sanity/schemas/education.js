@@ -1,16 +1,21 @@
 export default {
-    name: 'testimonials',
-    title: 'Testimonials',
+    name: 'education',
+    title: 'Education',
     type: 'document',
     fields: [
         {
-            name: 'name',
-            title: 'Name',
+            name: 'school',
+            title: 'School',
             type: 'string'
         },
         {
-            name: 'company',
-            title: 'Company',
+            name: 'program',
+            title: 'Program Name',
+            type: 'string'
+        },
+        {
+            name: 'years',
+            title: 'Years',
             type: 'string'
         },
         {
@@ -22,8 +27,8 @@ export default {
             }
         },
         {
-            name: 'feedback',
-            title: 'Feedback',
+            name: 'overview',
+            title: 'Overview',
             type: 'string'
         }
     ]
