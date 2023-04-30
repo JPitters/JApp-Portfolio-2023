@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { About, Contact, Education, Skills, Testimonials, Header, Footer } from './containers';
 
 function App() {
   return (
