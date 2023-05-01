@@ -5,7 +5,7 @@ import { easeOut, motion } from 'framer-motion';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   return (
     <nav className="app__navbar">
@@ -22,13 +22,15 @@ const Navbar = () => {
       </ul>
 
       <div className="app__navbar-mobile">
-        <HiMenuAlt4 onClick={() => setToggle(true)}/>
+        <HiMenuAlt4 className="navbar-toggle" onClick={() => setToggle(true)}></HiMenuAlt4>
         
         {toggle && (
           <motion.div 
-            whileInView={{ x: [300, 0]}}
-            transition={{duration: 0.85, ease: easeOut}}>
-            <HiX onClick={() => setToggle(false)} />
+            whileInView={{ x: [300, 0] }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="motion-div"
+          >
+            <HiX className="navbar-toggle" onClick={() => setToggle(false)} />
 
             <ul>
             {['Home', 'About', 'Contact', 'Education', 'Skills'].map((item) => (
