@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { About, Contact, Education, Skills, Testimonials, Header, Footer } from './containers';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+const { Home, About, Contact, Education, Skills, Testimonials, Header, Footer } = React.lazy(() => import('./containers'));
+import { Navbar } from './components'
 
 function App() {
   return (
+    /*
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -20,6 +24,20 @@ function App() {
         </a>
       </header>
     </div>
+    */
+    <Router>
+      <Navbar />
+      <Suspense fallback={<div>Loading...</div>} >
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+          <Route path="/contact" component={Contact}/>
+          <Route path="/education" component={Education}/>
+          <Route path="/skills" component={Skills}/>
+          <Route path="/testimonials" component={Testimonials}/>
+        </Switch>
+      </Suspense>
+    </Router>
   );
 }
 
