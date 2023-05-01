@@ -1,14 +1,16 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-const { Home, About, Contact, Education, Skills, Testimonials, Header, Footer } = React.lazy(() => import('./containers'));
-import { Navbar } from './components'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { Navbar } from './components';
+import { Home, NotFound } from './pages';
+const { About, Contact, Education } = React.lazy(() => import('./pages'));
+const { Skills, Testimonials, Header, Footer } = React.lazy(() => import('./containers'));
 
 function App() {
   return (
     /*
-    <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -23,21 +25,23 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
     */
+    <div className="App">
     <Router>
       <Navbar />
-      <Suspense fallback={<div>Loading...</div>} >
-        <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="/about" component={About}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/education" component={Education}/>
-          <Route path="/skills" component={Skills}/>
-          <Route path="/testimonials" component={Testimonials}/>
-        </Switch>
+      <Suspense fallback={<div>Loading..</div>} >
+        <Routes>
+          <Route exact path="/" element={<Home />}/>
+          <Route path="/about" element={<About />}/>
+          <Route path="/contact" element={<Contact />}/>
+          <Route path="/education" element={<Education />}/>
+          <Route path="/skills" element={<Skills />}/>
+          <Route path="/testimonials" element={<Testimonials />}/>
+          <Route path="*" element={<NotFound />}/>
+        </Routes>
       </Suspense>
     </Router>
+    </div>
   );
 }
 

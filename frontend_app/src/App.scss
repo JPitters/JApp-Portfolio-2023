@@ -1,0 +1,108 @@
+// Define colors
+$primary-color: #537ec5;
+$secondary-color: #e0e0e0;
+
+// Define typography
+$heading-font: 'Montserrat', sans-serif;
+$body-font: 'Open Sans', sans-serif;
+
+// Define border radius
+$border-radius: 5px;
+
+.app {
+  text-align: center;
+}
+
+.app-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.app__container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.app__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright {
+  width: 100%;
+  padding: 2rem 0 0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  p {
+    text-transform: uppercase;
+    color: var(--black-color);
+  }
+}
+
+.app-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+// Define animations
+@mixin fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .app-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.app-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Define styles for a button with a primary color and a hover effect
+.button {
+  background-color: $primary-color;
+  color: white;
+  border-radius: $border-radius;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: $heading-font;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
